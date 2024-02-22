@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static%}
+{%block title%} Post Title {%endblock%}
+{%block css_files%}
+    <link rel="stylesheet" href="{% static "blog/post-detail.css"%}"/>
+{%endblock%}
+{%block content%}
+    <section id="summary">
+        <h2>{{posts.title}}</h2>
+        <div id="read-later">
+            <form action="{% url "read-later" %}" method="POST">
+                {% csrf_token%}
+                {%if posts.title in stored_posts%}
+                    <button> Saved </button>
+                    <input type="hidden" value="{{True}}" name="saved">
+                {%else%}
+                    <button> Read Later </button>
+                    <input type="hidden" value="{{False}}" name="saved">
+                {%endif%}
+            </form>
+        </div>
+        <article>
+            <img src="{{ posts.image.url }}" alt="{{posts.title}}">
+            <address>By Purple</address>
+            <div>
+                last updated on <time> {{posts.date}} </time>
+            </div>
+        </article>
+    </section>
+    <main>
+        <p>
+            {{posts.content| linebreaks}}
+        </p>
+    </main>
+    <section id="comments">
+        <ul>
+            {%for comment in comments%}
+                <li>
+                    <h2>{{comment.user_name}}</h2>
+                    <p>{{comment.comment_text|linebreaks}}</p>
+                </li>
+            {%endfor%}
+        </ul>
+    </section>
+    <section id="comment-form">
+        <h2> Your Comment </h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {%for form_field in comment_form%}
+                <div class ="form-control">
+                    {{form_field.label_tag}}
+                    {{form_field}}
+                    {{form_field.errors}}
+                </div>
+            {%endfor%}
+            <button> Post Comment  </button>
+        </form>
+    </section>
+{%endblock%}
