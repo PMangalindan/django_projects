@@ -4,9 +4,16 @@
 }
 html {
   font-family: 'Open Sans', 'Lato', sans-serif;
+  height: -webkit-fill-available;
 }
 body {
-  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 0 auto;
+  width: 100vh;
+  height: -webkit-fill-available;
 }
 h1,
 h2,
@@ -15,15 +22,20 @@ h3 {
   font-weight: bold;
 }
 #main-navigation {
-  width: 100%;
+  position: relative;
+  width: 100vh;
   height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10%;
-  position: absolute;
-  top: 0;
-  left: 0;
+
+
+
+
+
+
+
 }
 #main-navigation a {
   text-decoration: none;
@@ -40,6 +52,7 @@ h3 {
   color: white;
 }
 #main-navigation {
+
   background-color: #390281;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }

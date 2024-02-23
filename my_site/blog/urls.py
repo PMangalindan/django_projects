@@ -8,4 +8,5 @@ urlpatterns = [
     path('posts/<slug:slug>', views.post_detail, name= "post-detail-page"),
     path("read-later", views.read_later, name= "read-later"),
     path("read-later-list", views.read_later_list, name= "read-later-list")
-] + static( settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static( settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
+  + static( settings.STATIC_URL, document_root=settings.STATIC_ROOT)

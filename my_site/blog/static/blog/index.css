@@ -1,11 +1,15 @@
 #welcome {
     background: linear-gradient(to right top, #6305dd, #390281);
     padding: 6rem 12%;
+    width: 100vh;
+    margin: -6rem auto 2rem auto;
   }
   #welcome header {
+    position: relative;
     display: flex;
     align-items: flex-start;
     margin: 3rem auto;
+    padding: 5rem;
   }
   #welcome img {
     width: 10rem;
@@ -32,7 +36,7 @@
     background-color: white;
     padding: 2rem;
     border-radius: 12px;
-    width: 60rem;
+    width: 100vh;
     margin: -6rem auto 2rem auto;
     box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
   }
@@ -54,6 +58,8 @@
     padding: 3rem;
     background-color: #e48900;
     margin-top: 5rem;
+    width: 100vh;
+    margin: -6rem auto 2rem auto;
   }
   #about h2 {
     font-size: 3rem;
